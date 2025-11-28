@@ -83,7 +83,10 @@ function NavSection({ title, children, defaultOpen = true }: NavSectionProps) {
 
 export default function AppSidebar() {
   const pathname = usePathname();
-  const isProjectDetail = pathname.startsWith("/projects/") && pathname !== "/projects";
+  const isProjectDetail =
+    typeof pathname === "string" &&
+    pathname.startsWith("/projects/") &&
+    pathname !== "/projects";
 
   return (
     <aside className="w-[220px] bg-[#1e2642] flex flex-col min-h-screen">
